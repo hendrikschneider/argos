@@ -105,18 +105,30 @@ export function createConfig() {
         env: "RESEND_WEBHOOK_SECRET",
       },
     },
-    s3: {
-      screenshotsBucket: {
-        doc: "Bucket containing screenshots",
+    minio: {
+      accessKey: {
+        doc: "Minio Access Key",
+        format: String,
+        default: "",
+        env: "MINIO_ACCESS_KEY",
+      },
+      secretKey: {
+        doc: "Minio Secret Key",
+        format: String,
+        default: "",
+        env: "MINIO_SECRET_KEY",
+      },
+      endpoint: {
+        doc: "Minio Endpoint",
+        format: String,
+        default: "http://localhost:9000",
+        env: "MINIO_ENDPOINT",
+      },
+      bucket: {
+        doc: "Minio Bucket",
         format: String,
         default: "argos-ci-development",
-        env: "AWS_SCREENSHOTS_BUCKET",
-      },
-      publicImageBaseUrl: {
-        doc: "Public URL for screenshots",
-        format: String,
-        default: "https://files.argos-ci.com/development/",
-        env: "S3_PUBLIC_IMAGE_BASE_URL",
+        env: "MINIO_BUCKET",
       },
     },
     github: {

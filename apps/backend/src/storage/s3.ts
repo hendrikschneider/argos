@@ -1,12 +1,17 @@
-import { S3Client } from "@aws-sdk/client-s3";
+import { Client as MinioClient } from "minio";
+import config from "@/config/index.js";
 
-let client: S3Client;
+let minioClient: MinioClient;
 
-export type { S3Client } from "@aws-sdk/client-s3";
+export type { Client as MinioClient } from "minio";
 
 export const getS3Client = () => {
-  if (!client) {
-    client = new S3Client({ region: "eu-west-1" });
+  if (!minioClient) {
+    minioClient = new MinioClient({
+      endPoint: config.get("minio.endpoint"),
+      accessKey: config.get("minio.accessKey"),
+      secretKey: config.get("minio.secretKey"),
+    });
   }
-  return client;
+  return minioClient;
 };
