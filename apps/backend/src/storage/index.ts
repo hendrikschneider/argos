@@ -6,3 +6,4 @@ export * from "./upload.js";
 export * from "./signed-url.js";
 export * from "./ImageFile.js";
 export * from "./s3.js";
+export * from "./s3.js";
